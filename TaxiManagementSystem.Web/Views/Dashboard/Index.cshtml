@@ -1,0 +1,50 @@
+﻿@using System.Globalization
+
+<div>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Dashboard</h1>
+        </div>
+    </div>
+
+    <hr />
+
+    @Html.Partial("_DashboardHeaderPartial")
+
+    <hr />
+    
+    @Html.Partial("_DashboardHeaderPartial2")
+    
+    <hr/>
+
+    <div class="row">
+        
+        @Html.Partial("Charts/_TaxiOrdersPartialView")
+
+        <br />
+
+        @*@Html.Partial("Maps/TotalPopsMapPartial")*@
+
+    </div>
+
+    <br />
+
+    <div class="row">
+        @*@Html.Partial("Charts/WeeklyUploadedFilesPartial")*@
+
+        <br />
+
+        @*@Html.Partial("Charts/IpBeruhazasPartial")*@
+
+    </div>
+
+    <br />
+
+
+
+
+
+
+
+</div>
+

@@ -1,0 +1,157 @@
+﻿@using System.Collections
+@using TaxiManagementSystem.DTO
+@using TaxiManagementSystem.DTO.Enums
+@using TaxiManagementSystem.Web.Models
+@model RatingViewModel
+
+<style>
+    .checked {
+        color: orange;
+    }
+</style>
+
+<div>
+    <h4>My overall rating</h4>
+
+    @{
+        double myRating = Model.MyRating;
+
+        string check1 = "fa-star";
+        string check2 = "fa-star";
+        string check3 = "fa-star";
+        string check4 = "fa-star";
+        string check5 = "fa-star";
+
+        if (myRating >= 1.0)
+        {
+            check1 += " checked";
+            if (myRating > 1.0 && myRating < 2.0)
+            {
+                check2 += "-half checked";
+            }
+        }
+        if (myRating >= 2.0)
+        {
+            check2 += " checked";
+            if (myRating > 2.0 && myRating < 3.0)
+            {
+                check3 += "-half checked";
+            }
+        }
+        if (myRating >= 3.0)
+        {
+            check3 += " checked";
+            if (myRating > 3.0 && myRating < 4.0)
+            {
+                check4 += "-half checked";
+            }
+        }
+        if (myRating >= 4.0)
+        {
+            check4 += " checked";
+            if (myRating > 4.0 && myRating < 5.0)
+            {
+                check5 += "-half checked";
+            }
+        }
+        if (myRating >= 5.0)
+        {
+            check5 += " checked";
+        }
+
+    }
+
+    <span class="fa @check1"></span>
+    <span class="fa @check2"></span>
+    <span class="fa @check3"></span>
+    <span class="fa @check4"></span>
+    <span class="fa @check5"></span>
+
+</div>
+<br/>
+<hr/>
+<br/>
+<div class="container">
+    <table class="table">
+        <thead>Rate your rides</thead>
+
+        <tr>
+            <th>
+                @Html.DisplayName("Source area")
+            </th>
+            <th>
+                @Html.DisplayName("Destination area")
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Ride.Distance)
+            </th>
+            <th>
+                @Html.DisplayName("Driver email")
+            </th>
+            <th>
+                @Html.DisplayName("Passenger email")
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Ride.BookingTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.Value)
+            </th>
+            <th></th>
+        </tr>
+
+        @{
+            IEnumerable<Ride> list = Model.MyRides;
+            List<Ride> shouldBeRatedList;
+
+            if (User.IsInRole("Driver"))
+            {
+                shouldBeRatedList = list.Where(x => !x.IsUserRated && x.RideStatus == RideStatus.Completed).ToList();
+            }
+            else
+            {
+                shouldBeRatedList = list.Where(x => !x.IsDriverRated && x.RideStatus == RideStatus.Completed).ToList();
+            }
+        }
+
+        @foreach (Ride ride in shouldBeRatedList)
+        {
+            using(Html.BeginForm("Rate", "Rating", FormMethod.Post, new { @id = ride.Id }))
+            {
+            @*@Html.AntiForgeryToken()*@
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(x => ride.Id)
+                @Html.HiddenFor(x => ride.Taxi.DriverId)
+                @Html.HiddenFor(x => ride.User.Id)
+                <tr>
+                    <td>
+                        @Html.DisplayFor(x => ride.Source.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => ride.Destination.Area)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => ride.Distance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => ride.Taxi.Driver.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => ride.User.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => ride.BookingTime)
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => x.Value, new { htmlAttributes = new { min = "1", max = "5", step = "1" } })
+                        @Html.ValidationMessageFor(x => x.Value, "", new { @class = "text-danger" })
+                    </td>
+                    <td>
+                        <input name=@("btn"+ride.Id) type="submit" value="Rate" class="btn btn-primary" />
+                    </td>
+                </tr>
+            }
+
+        }
+    </table>
+</div>

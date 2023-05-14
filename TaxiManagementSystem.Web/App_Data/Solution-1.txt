@@ -1,0 +1,35 @@
+They should be 3
+Driver, Custormer and Admin
+
+1] Driver
+•Driver registration / login - DONE
+•Online / Offline status - ???
+•Pending requests : driver can see all requested rides by user in this 
+•section. and also able to accept / cancel invitations
+•Accepted requests : driver can see accepted request in this section and track the journey.
+•Completed rides : driver can see all their completed rides unders this section and check further history.
+•Cancelled rides : driver can see cancel rides list under this section.
+•Profile section : Driver can acces their profile and can manage too.
+•Vehicle information : Driver can manage vehicle information and also submit their proofs and othre vehicle related documentation. 
+•Transaction history : Driver can see their all transaction history related to their rides. 
+
+2] Customer
+•User registration / login
+•Home : user can locate nearest taxi and send ride request.
+•Pending requests : user can see all requested rides by them in this section.
+•Accepted requests : user can see accepted request in this section and track the journey. 
+•Completed rides : user can see all their completed rides unders this section and check further history. 
+•Cancelled rides : user can see cancel rides list under this section.
+•Profile section : user can acces their profile and can manage too.
+
+3] Admin
+•Live tracking of rides.
+•Manage drivers [Update/Delete]
+•Manage users [Update/Delete]
+•View rides
+•View drivers current location
+•Track & manage driver payment
+•Set Commissions
+
+
+It can be without GPS Tracking System, we will use Source and Destination with City, Area and District.

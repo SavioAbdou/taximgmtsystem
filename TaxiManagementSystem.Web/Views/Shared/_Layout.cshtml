@@ -1,0 +1,115 @@
+﻿@using Chart.Mvc.Extensions
+@using Microsoft.AspNet.Identity
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Taxi Management System</title>
+    @Styles.Render("~/Content/css")
+
+    @Styles.Render("~/Content/custom")
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/popper")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <style>
+        .dropdown-menu.show {
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-global fixed-top">
+        <div class="container-fluid">
+            <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="../">Taxi Management System</a>
+            @if (Request.IsAuthenticated && !User.IsInRole("Admin"))
+            {
+                <div>
+                    @Html.Partial("_BalancePartial")
+                </div>
+            }
+            <div id="navbar" class="collapse navbar-collapse">
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+    @if (Request.IsAuthenticated)
+    {
+        <nav id="side-navbar" class="navbar-primary">
+            <a href="#" class="btn-expand-collapse"><i class="fa fa-arrow-left"></i></a>
+            <ul class="navbar-primary-menu">
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <li><a href="@Url.Action("Index","Dashboard")"><i class="fa fa-home"></i><span class="nav-label"> Dashboard</span></a></li>
+
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i><span class="nav-label"> Settings</span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a href="@Url.Action("ImportExcel", "Admin")"><i class="fa fa-file-excel"></i><span class="nav-label"> City Excel import</span></a></li>
+                            <li class="dropdown-item"><a href="@Url.Action("Balance", "Admin")"><i class="fa fa-money-bill-alt"></i><span class="nav-label"> Account balances</span></a></li>
+                        </ul>
+                    </li>
+                }
+
+                @if (User.IsInRole("User") || User.IsInRole("Driver"))
+                {
+                    <li><a href="@Url.Action("Index","Ride")"><i class="fa fa-road"></i><span class="nav-label"> My rides</span></a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("DriversRide","Ride")"><i class="fa fa-road"></i><span class="nav-label"> All rides</span></a></li>
+                }
+
+
+                @if (User.IsInRole("User"))
+                {
+                    <li><a href="@Url.Action("Create", "Ride")"><i class="fa fa-plus"></i><span class="nav-label"> New ride</span></a></li>
+                }
+                @if (User.IsInRole("Driver"))
+                {
+                    <li><a href="@Url.Action("Index","Taxi")"><i class="fa fa-taxi"></i><span class="nav-label"> My taxis</span></a></li>
+                }
+                @if (User.IsInRole("Driver"))
+                {
+                    <li><a href="@Url.Action("TransactionHistory","Ride")"><i class="fa fa-history"></i><span class="nav-label"> Transaction History</span></a></li>
+                }
+
+                <li><a href="@Url.Action("Index","Rating")"><i class="fa fa-star"></i><span class="nav-label"> Ratings</span></a></li>
+            </ul>
+        </nav>
+
+        <div class="main-content" style="margin-left: 200px;">
+            @RenderBody()
+        </div>
+    }
+    else
+    {
+        <div class="main-content">
+            @RenderBody()
+        </div>
+    }
+
+
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - <a style="color: black;" href="https://www.facebook.com/savioabdou">www.SavioSoft.com.lb</a></p>
+    </footer>
+
+    <script src="~/Scripts/custom.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

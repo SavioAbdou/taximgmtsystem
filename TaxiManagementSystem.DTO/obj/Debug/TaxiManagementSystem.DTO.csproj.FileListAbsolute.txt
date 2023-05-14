@@ -1,0 +1,16 @@
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\TaxiManagementSystem.DTO.dll.config
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\TaxiManagementSystem.DTO.dll
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\TaxiManagementSystem.DTO.pdb
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\EntityFramework.dll
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\EntityFramework.xml
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\obj\Debug\TaxiManagementSystem.DTO.csproj.CoreCompileInputs.cache
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\obj\Debug\TaxiManagementSystem.DTO.csproj.CopyComplete
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\obj\Debug\TaxiManagementSystem.DTO.dll
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\obj\Debug\TaxiManagementSystem.DTO.pdb
+C:\Users\savio\Desktop\taximgmtsystem\TaxiManagementSystem.DTO\obj\Debug\TaxiManagementSystem.DTO.csprojAssemblyReference.cache

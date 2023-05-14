@@ -1,0 +1,45 @@
+Main Features: 1. Taxi Software for B2B Car Rental Agencies.
+Very well and attractive design
+Multicity Operation Solutions
+Control Panel user and role permissions.
+Built on Microsoft .NET & AJAX technologies.
+Website and software custom quote business rule for your agency.
+Booking: Create Booking,Dispatch Booking,Pending Booking Details,Close Booking,Booking Details (Booking Received, Partially Dispatch, Dispatch Slip Created, Partially Closed, Journey Completed, Booking Cancelled, No Show, Complementary)
+Billing: Individual , Corporate and Vendor Billing: Generate Corporate Bill,View Corporate Bill,Corporate Dues Reports,Revenue Reports,Generate Vendor Bill,View Vendor Bill,Vendor/Chauffeur Payment
+Tariff : for Individual , Corporate and Vendor : Tariff Details,Create Tariff Card,Manage Tariff,Change Tariff Name,Vendor Tariff Details,Create Vendor Tariff Card,Manage Tariff,Change Vendor Tariff Name
+Reports: Generate Reports for Duty Register, Bill Cover, Duty Cover Report, Bill Detail Report, City Wise Report, Corporate Report, Vendor Report, Chauffeur Report, Reservation Associates Report, Dispatch Associates Report, Closing Associates Report, Alert Reports [Driver DL expiry and etc.]) 
+Corporate:  Corporate Details,Corporate Registration,Sister Corporate Details,Corporate User Details and many more.. 
+Vendor: Manage Vendor,Manage Vehicle,Manage Chauffeur,Manage Chauffeur’s Vehicle,Manage Document.
+Manager software User, Configure & Setting
+
+ Main Features: 2. Car Internet Booking Engine Portal for B2C Car Rental Agencies
+Online Car Booking Reservation System B2C for outstation (One Way, Return, & Multicity), Local (Hourly Based),airport transfer. 
+Search Result Page (Information about Car Feature including type and Price End User (Traveler) Details Information Capture
+Payment Option / (Net Banking , Debit card and Credit Card online web and mobile payment getway) 
+Email / SMS/ Print / option for Booking Details Confirmation
+Online cancellation request process for guest (Manual Refund Process)
+
+ Main Features: 3. Mobile Android Apps for Driver.
+Login & Profile with Taxi details
+Booking History details
+Ongoing & Allocated trip details
+Notifications
+
+ Main Features: 4. Mobile Android Apps for Guest.
+Register/login/ using Google & Facebook account 
+Profile management
+Current trip & Trip history Details
+Book taxi or Cancel trip Process
+Locate taxi on map
+Driver name 
+Taxi fare
+e-Receipt 
+Payment option (card Payment 3rd party integration as per new RBI Norms /cash)
+Rate the driver
+Feedback to admin (owner)
+
+
+
+
+
+It can be without GPS Tracking System, we will use Source and Destination with City, Area and District.

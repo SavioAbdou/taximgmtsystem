@@ -1,0 +1,56 @@
+﻿@using Chart.Mvc.ComplexChart
+@using Chart.Mvc.Extensions
+
+<script src="~/Scripts/Chart.js"></script>
+
+<script>
+    var chartData = {
+        labels: [],
+        datasets: [
+            {
+                fillColor: "rgba(220,220,220,0.2)",
+                strokeColor: "rgba(220,220,220,1)",
+                pointColor: "rgba(220,220,220,1)",
+                pointStrokeColor: "#fff",
+                data: []
+            }
+        ]
+    };
+
+    $(function () {
+        var canvas = document.getElementById('chart-view');
+        var ctx = canvas.getContext('2d');
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            url: '/Dashboard/TaxiOrders'
+        }).done(function (result) {
+            console.log(result);
+            $.each(result,
+                function (index, data) {
+                    
+                    chartData.labels.push(ToJavaScriptDate(data.Date));
+                    chartData.datasets[0].data.push(data.Count);
+                });
+
+            var myLiveChart = new Chart(ctx).Line(chartData, { animationSteps: 15 });
+        });
+    });
+    
+    var canvas = document.getElementById('chart-view');
+
+    function ToJavaScriptDate(value) {
+        var pattern = /Date\(([^)]+)\)/;
+        var results = pattern.exec(value);
+        var dt = new Date(parseFloat(results[1]));
+        return (dt.getMonth() + 1) + "/" + dt.getDate() + "/" + dt.getFullYear();
+    }
+</script>
+
+<div class="text-center">
+    <h4>Taxi orders</h4>
+    <canvas id="chart-view" width="500" height="300"></canvas>
+</div>
+

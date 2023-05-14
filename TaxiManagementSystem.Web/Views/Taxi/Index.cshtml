@@ -1,0 +1,55 @@
+﻿@using TaxiManagementSystem.DTO
+@model TaxiManagementSystem.DTO.Taxi
+
+<h4>My registered taxis</h4>
+
+<style>
+    .disable-button {
+        pointer-events: none;
+        background-color: lightgrey;
+        border-color: grey;
+    }
+</style>
+
+<p>
+    @{
+        string disabled = Model != null ? "disable-button" : "";
+    }
+    <a href="@Url.Action("Create", "Taxi")" class="btn btn-primary @disabled">Add new</a>
+</p>
+
+@using (Html.BeginForm("Remove", "Taxi", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+
+    <table class="table table-striped table-bordered">
+        <thead>
+            My fleet
+        </thead>
+        <tr class="text-center">
+            <th>
+                @Html.DisplayNameFor(x => x.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(x => x.TaxiStatus)
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <th>
+                @Html.DisplayFor(x => Model.Type)
+            </th>
+            <th>
+                @Html.DisplayFor(x => Model.TaxiStatus)
+            </th>
+            @if (Model != null)
+            {
+                <th>
+                    <input type="submit" value="Remove" class="btn btn-primary" />
+                </th>
+            }
+        </tr>
+    </table>
+}

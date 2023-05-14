@@ -1,0 +1,139 @@
+﻿.huge {
+    font-size: 40px;
+}
+
+.card-primary {
+    background-color: #007bff;
+}
+
+a.card-primary:hover, a.card-primary:focus,
+button.card-primary:hover,
+button.card-primary:focus {
+    background-color: #0062cc !important;
+}
+
+.card-green {
+    border-color: #5cb85c;
+}
+
+.card-green > .card-header {
+    border-color: #5cb85c;
+    color: white;
+    background-color: #5cb85c;
+}
+
+.card-green > a {
+    color: #5cb85c;
+}
+
+.card-green > a:hover {
+    color: #3d8b3d;
+}
+
+.card-red {
+    border-color: #d9534f;
+}
+
+.card-red > .card-header {
+    border-color: #d9534f;
+    color: white;
+    background-color: #d9534f;
+}
+
+.card-red > a {
+    color: #d9534f;
+}
+
+.card-red > a:hover {
+    color: #b52b27;
+}
+
+.card-yellow {
+    border-color: #f0ad4e;
+}
+
+.card-yellow > .card-header {
+    border-color: #f0ad4e;
+    color: white;
+    background-color: #f0ad4e;
+}
+
+.card-yellow > a {
+    color: #f0ad4e;
+}
+
+.card-yellow > a:hover {
+    color: #df8a13;
+}
+
+.card-grey {
+    border-color: #808080;
+}
+
+.card-grey > .card-header {
+    border-color: #808080;
+    color: white;
+    background-color: #808080;
+}
+
+.card-grey > a {
+    color: #808080;
+}
+
+.card-grey > a:hover {
+    color: #808080;
+}
+
+.card-lightgrey {
+    border-color: #AAAAAA;
+}
+
+.card-lightgrey > .card-header {
+    border-color: #AAAAAA;
+    color: white;
+    background-color: #AAAAAA;
+}
+
+.card-lightgrey > a {
+    color: #AAAAAA;
+}
+
+.card-lightgrey > a:hover {
+    color: #AAAAAA;
+}
+
+.card-blue {
+    border-color: #20a8d8;
+}
+
+.card-blue > .card-header {
+    border-color: #20a8d8;
+    color: white;
+    background-color: #20a8d8;
+}
+
+.card-blue > a {
+    color: #20a8d8;
+}
+
+.card-blue > a:hover {
+    color: #20a8d8;
+}
+
+.card-purple {
+    border-color: #9c27b0;
+}
+
+.card-purple > .card-header {
+    border-color: #9c27b0;
+    color: white;
+    background-color: #9c27b0;
+}
+
+.card-purple > a {
+    color: #9c27b0;
+}
+
+.card-purple > a:hover {
+    color: #9c27b0;
+}

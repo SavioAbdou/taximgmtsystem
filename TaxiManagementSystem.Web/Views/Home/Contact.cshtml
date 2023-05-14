@@ -1,0 +1,167 @@
+﻿@using EasyGCaptchaMVC.Worker
+@model TaxiManagementSystem.Web.Models.ContactViewModel
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h4>Write us</h4>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div id="leftContactColumn" class="col-md-6">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @*@Html.ValidationSummary("", new { @class = "text-danger" })*@
+
+                    <div id="contactForm" class="form-login">
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                @Html.DisplayNameFor(x => x.Name)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(x => x.Name, new { @style = "width: 100%;" })
+                                @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                @Html.DisplayNameFor(x => x.Email)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(x => x.Email, new { @style = "width: 100%;" })
+                                @Html.ValidationMessageFor(x => x.Email, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                @Html.DisplayNameFor(x => x.Phone)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(x => x.Phone, new { @style = "width: 100%;" })
+                                @Html.ValidationMessageFor(x => x.Phone, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                @Html.DisplayNameFor(x => x.Message)
+                            </div>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(x => x.Message, new { @style = "width: 100%;height: 200px;" })
+                                @Html.ValidationMessageFor(x => x.Message, null, new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-4">
+                                @Html.EasyGCaptchaGenerateCaptcha()
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="offset-md-2 col-md-10">
+                                <input type="submit" value="Send" class="btn btn-primary" style="width: 100%;" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (TempData["error"] != null)
+                {
+                    <div id="errorAlert" class="alert alert-danger alert-dismissible fade show offset-md-2" role="alert">
+                        <h3><strong class="alert-heading">Error!</strong></h3>
+                        <hr />
+                        <p>
+                            @Html.Raw(TempData["error"])
+                        </p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+                else if (TempData["success"] != null)
+                {
+                    <div id="succesAlert" class="alert alert-success alert-dismissible fade show offset-md-2" role="alert">
+                        <h3><strong class="alert-heading">Success!</strong></h3>
+                        <hr />
+                        <p>
+                            @Html.Raw(TempData["success"])
+                        </p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                }
+
+            </div>
+
+            <div id="rightContactColumn" class="col-md-6" style="text-align: center;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Phone</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>+96170652563</h4>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Email</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <h4>savio.abdo@gmail.com</h4>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Social</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="https://www.facebook.com/SavioAbdou"><i class="fab fa-facebook fa-4x" style="color: #007bff;"></i></a>
+                        <a href="https://www.youtube.com"><i class="fab fa-youtube fa-4x" style="color: red;"></i></a>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="map" style="height: 400px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+    $("#succesAlert").fadeTo(2000, 500).slideUp(500, function () {
+        $("#succesAlert").slideUp(500);
+    });
+
+    function myMap() {
+
+        var city = { lat: 33.9803724, lng: 35.624089 };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 13,
+            center: city
+        });
+        var marker = new google.maps.Marker({
+            position: city,
+            map: map
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0qqPQzQfsU5lwHlfYK4M9bQD2pUCpBVk&callback=myMap"></script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

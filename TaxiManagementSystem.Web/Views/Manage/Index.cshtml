@@ -1,0 +1,31 @@
+﻿@model TaxiManagementSystem.Web.Models.IndexViewModel
+
+@{
+    ViewBag.Title = "Manage your account";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p class="text-success">@ViewBag.StatusMessage</p>
+<div>
+    <h4>Change your account information</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>Password:</dt>
+        <dd>
+            [
+            @if (Model.HasPassword)
+            {
+                @Html.ActionLink("Change your current password", "ChangePassword")
+            }
+            else
+            {
+                @Html.ActionLink("Set password", "SetPassword")
+            }
+            ]
+        </dd>
+    </dl>
+
+</div>
+

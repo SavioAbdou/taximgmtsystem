@@ -1,0 +1,90 @@
+﻿@using TaxiManagementSystem.Web.Models
+@*@model BalanceViewModel*@
+
+@if (TempData["error"] != null)
+{
+    <div id="errorAlert" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <h3><strong class="alert-heading">Error!</strong></h3>
+        <hr />
+        <p>
+            @Html.Raw(TempData["error"])
+        </p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+else if (TempData["success"] != null)
+{
+    <div id="succesAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <h3><strong class="alert-heading">Success!</strong></h3>
+        <hr />
+        <p>
+            @Html.Raw(TempData["success"])
+        </p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@{
+    <table class="table">
+        <thead>
+            Customer balances
+        </thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Username")
+            </th>
+            <th>
+                @Html.DisplayName("Email")
+            </th>
+            <th>
+                @Html.DisplayName("PhoneNumber")
+            </th>
+            <th>
+                @Html.DisplayName("Balance")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (BalanceViewModel user in ViewBag.Users)
+        {
+            using (Html.BeginForm("Balance", "Admin", FormMethod.Post, new { @id = user.Id }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => user.Id)
+                @Html.HiddenFor(x => user.UserName)
+                @Html.HiddenFor(x => user.Email)
+                @Html.HiddenFor(x => user.PhoneNumber)
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(x => user.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => user.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(x => user.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.EditorFor(x => user.Balance)
+                        @Html.ValidationMessageFor(x => user.Balance, "", new { @class = "text-danger" })
+                    </td>
+                    <td>
+                        <input name=@("btn"+user.Id) type="submit" value="Update" class="btn btn-primary" />
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+
+}
+
+<script>
+    $("#succesAlert").fadeTo(2000, 500).slideUp(500, function () {
+        $("#succesAlert").slideUp(500);
+    });
+</script>

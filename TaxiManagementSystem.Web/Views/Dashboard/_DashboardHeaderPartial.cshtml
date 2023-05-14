@@ -1,0 +1,86 @@
+﻿<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div style="padding: 5px 0 5px 0;">
+            <div class="card card-yellow">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <i class="fa fa-taxi fa-5x"></i>
+                        </div>
+                        <div class="col-sm-9 text-right">
+                            <div class="huge" id="TotalTaxis">
+                                <span>
+                                    @if (ViewBag.TotalTaxis != null)
+                                    {
+                                        @ViewBag.TotalTaxis
+                                    }
+                                </span>
+
+                            </div>
+                            <div>Total taxis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div style="padding: 5px 0 5px 0;">
+            <div class="card card-red">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <i class="fa fa-users fa-5x"></i>
+                        </div>
+                        <div class="col-sm-9 text-right">
+                            <div class="huge" id="TotalCustomers">
+                                <span>
+                                    @if (ViewBag.TotalCustomers != null)
+                                    {
+                                        @ViewBag.TotalCustomers
+                                    }
+                                </span>
+
+                            </div>
+                            <div>Total customers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <br />
+    <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+        <div style="padding: 5px 0 5px 0;">
+            <div class="card card-green">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <i class="fa fa-suitcase fa-5x"></i>
+                        </div>
+                        <div class="col-sm-9 text-right">
+                            <div class="huge" id="TotalOrders">
+                                <span>
+                                    @if (ViewBag.TotalOrders != null)
+                                    {
+                                        @ViewBag.TotalOrders
+                                    }
+                                </span>
+
+                            </div>
+                            <div>Total orders</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+</div>

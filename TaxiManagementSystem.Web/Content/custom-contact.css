@@ -1,0 +1,75 @@
+﻿#contactForm {
+    /*border-right: solid 2px #c8c8c8;
+    float: left;
+    width: 55%;*/
+}
+
+    #contactForm .validation-error {
+        display: block;
+        margin-left: 15px;
+    }
+
+    #contactForm .validation-summary-errors ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #contactForm .validation-summary-errors li {
+        display: inline;
+        list-style: none;
+    }
+
+    #contactForm input, textarea {
+        max-width: unset;
+    }
+
+        #contactForm input[type="checkbox"],
+        #contactForm input[type="submit"],
+        #contactForm input[type="button"],
+        #contactForm button {
+            width: auto;
+        }
+
+    #contactForm h4 {
+        border: 0 solid #fff;
+        border-bottom-width: 1px;
+        padding-bottom: 10px;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    #contactForm .form-login {
+        background-color: #EDEDED;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+        border-color: #d2d2d2;
+        border-width: 5px;
+        box-shadow: 0 1px 0 #cfcfcf;
+    }
+
+    #contactForm .form-control {
+        border-radius: 10px;
+    }
+
+    #contactForm hr {
+        margin-top: 0;
+    }
+
+    #contactForm .main-content {
+        background: url("");
+    }
+
+    #contactForm .wrapper {
+        text-align: center;
+    }
+
+    #contactForm .container {
+        padding: 25px;
+    }
+
+#logoutForm {
+    display: inline;
+}

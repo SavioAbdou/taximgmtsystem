@@ -1,0 +1,58 @@
+﻿@model TaxiManagementSystem.Web.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-8">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-md-2 col-md-10">
+                        <div class="custom-checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="offset-md-2 col-md-6">
+                        <input type="submit" value="Login" class="btn btn-primary" style="width: 100%;" />
+                    </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("Register")" class="btn btn-secondary" style="width: 100%;">Register new user</a>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+    @*<div class="col-md-4">
+        <section id="socialLoginForm">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+        </section>
+    </div>*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

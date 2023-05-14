@@ -1,0 +1,54 @@
+﻿@using TaxiManagementSystem.DTO
+@model TaxiManagementSystem.DTO.Ride
+
+<h4>Ride details</h4>
+
+<table class="table">
+    <thead>
+        Driver: @(((ApplicationDriver)ViewBag.Driver).UserName)
+    </thead>
+    @{
+        IEnumerable<Ride> rides = (IEnumerable<Ride>)ViewBag.DriverRides;
+    }
+    <tr>
+        <th>
+            @Html.DisplayName("Source")
+        </th>
+        <th>
+            @Html.DisplayName("Destination")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideStatus)
+        </th>
+    </tr>
+
+    @foreach (Ride ride in (IEnumerable<Ride>)ViewBag.DriverRides)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(x => ride.Source.City)
+            </td>
+            <td>
+                @Html.DisplayFor(x => ride.Destination.City)
+            </td>
+            <td>
+                @Html.DisplayFor(x => ride.BookingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(x => ride.Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(x => ride.RideStatus)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<a href="@Url.Action("DriversRide", "Ride")" class="btn btn-primary">Back</a>

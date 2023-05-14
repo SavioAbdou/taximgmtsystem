@@ -1,0 +1,56 @@
+﻿@model IEnumerable<TaxiManagementSystem.Web.Models.TransactionHistoryViewModel>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ride.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ride.BookingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DriverRating)
+        </th>
+        <th>
+            @Html.DisplayName("Customer")
+        </th>
+        <th>
+            @Html.DisplayName("Source")
+        </th>
+        <th>
+            @Html.DisplayName("Destination")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ride.Distance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ride.BookingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DriverRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ride.User.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ride.Source.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ride.Destination.City)
+            </td>
+        </tr>
+    }
+
+</table>

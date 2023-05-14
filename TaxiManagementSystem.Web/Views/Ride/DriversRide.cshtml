@@ -1,0 +1,40 @@
+﻿@using TaxiManagementSystem.DTO
+@model IEnumerable<ApplicationDriver>
+
+<h4>Drivers</h4>
+
+<table class="table">
+    <thead>
+    
+    </thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in (IEnumerable<ApplicationDriver>)ViewBag.Drivers)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a href="@Url.Action("DriverRide", "Ride", new {id = item.Id})" class="btn btn-primary">Show</a>
+            </td>
+        </tr>
+    }
+</table>

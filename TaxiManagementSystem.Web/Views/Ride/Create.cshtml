@@ -1,0 +1,125 @@
+﻿@model TaxiManagementSystem.DTO.Ride
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-sliderAccess.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.6.3/jquery-ui-timepicker-addon.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4>Ride</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group row">
+            @Html.LabelFor(model => model.Distance, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Distance, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.BookingTime, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BookingTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.BookingTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.TaxiId, "Taxi type", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("TaxiId", (IEnumerable<SelectListItem>)ViewBag.TaxiId, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TaxiId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.SourceId, "Source address", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SourceId", (IEnumerable<SelectListItem>)ViewBag.SourceId, htmlAttributes: new { @class = "form-control", onchange = "sourceOnChange(this.value);" })
+                @Html.ValidationMessageFor(model => model.SourceId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.DestinationId, "Destination address", htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DestinationId", (IEnumerable<SelectListItem>)ViewBag.DestinationId, htmlAttributes: new { @class = "form-control", onchange = "destinationOnChange(this.value);" })
+                @Html.ValidationMessageFor(model => model.DestinationId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.EstimatedPrice, htmlAttributes: new { @class = "col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EstimatedPrice, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-md-4 col-md-2">
+                <input type="submit" value="Create" class="btn btn-primary" style="width: 100%;" />
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $("#BookingTime").datetimepicker()
+    </script>
+}
+
+<div id="googleMap" style="height:600px;width:100%;"></div>
+<script>
+    var source = "Koura, North Lebanon";
+    var destination = "Koura, North Lebanon";
+
+    function myMap() {
+
+        var map = new google.maps.Map(document.getElementById('googleMap'),
+            {
+                center: source,
+                zoom: 7
+            });
+
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+            map: map
+        });
+
+        var request = {
+            destination: destination,
+            origin: source,
+            travelMode: 'DRIVING'
+        };
+
+        var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request,
+            function (response, status) {
+                if (status == 'OK') {
+                    directionsDisplay.setDirections(response);
+                    var distance = response.routes[0].legs[0].distance.value / 1000;
+                    console.log("Distance: " + distance + " kilometers");
+                    console.log("Duration: " + (response.routes[0].legs[0].duration.value / 3600) + " hours");
+                    $("#Distance").val(distance);
+                    $("#EstimatedPrice").val(distance * 0.5);
+                }
+            });
+    }
+
+    function sourceOnChange(e) {
+        source = $("#SourceId option:selected").text();
+        console.log("source: " + source);
+        if (destination) {
+            myMap();
+        }
+    }
+
+    function destinationOnChange(e) {
+        destination = $("#DestinationId option:selected").text();
+        console.log("dest: " + destination);
+        if (source) {
+            myMap();
+        }
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0qqPQzQfsU5lwHlfYK4M9bQD2pUCpBVk&callback=myMap"></script>

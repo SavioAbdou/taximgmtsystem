@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "ml-auto" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-user mr-auto">
+            <li>
+                <h5>Hello @User.Identity.GetUserName()!</h5>
+            </li>
+
+            <li>
+                @Html.ActionLink(" " + User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { @class = "fa fa-user" })
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out-alt"></i> Logout</a>
+            </li>
+            <li>
+                <hr/>
+            </li>
+            <li>
+                @Html.ActionLink(" Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "fa fa-envelope" })
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-user mr-auto">
+        <li>
+            @Html.ActionLink(" Register", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink", @class = "fa fa-registered"})
+        </li>
+        <li>
+            @Html.ActionLink(" Login", "Login", "Account", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "fa fa-sign-in-alt"})
+        </li>
+        <li>
+            <hr/>
+        </li>
+        <li>
+            @Html.ActionLink(" Contact", "Contact", "Home", routeValues: null, htmlAttributes: new { @class = "fa fa-envelope" })
+        </li>
+    </ul>
+}

@@ -1,0 +1,86 @@
+﻿@using EasyGCaptchaMVC.Worker
+@model TaxiManagementSystem.Web.Models.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @role = "form", enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            <div class="row">
+                @*@Html.Label("+963 ", new { @style = "margin-top: 5px;margin-left: 10px;" })*@
+                @{
+                    var areaCodeList = new SelectList(new[] { new { Id = "+961", Name = "+961" }, new { Id = "+33", Name = "+33" }, new { Id = "+1", Name = "+1" } }, "Id", "Name");
+                }
+                @Html.DropDownList("areaCode", areaCodeList, new { @class = "form-control", style = "width: 75px;" })
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", style = "width: 237px;margin-left: 10px;" })
+            </div>
+
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(x => x.Gender, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(x => x.Gender, "Select gender...", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(x => x.Role, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            @*@Html.EnumDropDownListFor(x => x.Role, "Select role...", new { @class = "form-control" })*@
+
+            @Html.DropDownListFor(x => x.Role, (IEnumerable<SelectListItem>)ViewBag.RoleList, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        @Html.LabelFor(x => x.ProfilePic, new { @class = "col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="upload" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-10">
+            @Html.EasyGCaptchaGenerateCaptcha()
+        </div>
+        <div class="col-md-2">
+            <input type="submit" class="btn btn-primary" value="Register" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

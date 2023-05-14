@@ -1,0 +1,72 @@
+﻿#loginForm {
+    min-width: 300px;
+}
+
+    #loginForm .validation-error {
+        display: block;
+        margin-left: 15px;
+    }
+
+    #loginForm .validation-summary-errors ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    #loginForm .validation-summary-errors li {
+        display: inline;
+        list-style: none;
+    }
+
+    #loginForm input {
+        max-width: unset;
+    }
+
+        #loginForm input[type="checkbox"],
+        #loginForm input[type="submit"],
+        #loginForm input[type="button"],
+        #loginForm button {
+            width: auto;
+        }
+
+    #loginForm h4 {
+        border: 0 solid #fff;
+        border-bottom-width: 1px;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    #loginForm .form-login {
+        background-color: #EDEDED;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+        border-color: #d2d2d2;
+        border-width: 5px;
+        box-shadow: 0 1px 0 #cfcfcf;
+    }
+
+    #loginForm .form-control {
+        border-radius: 10px;
+    }
+
+    #loginForm hr {
+        margin-top: 0;
+    }
+
+    #loginForm .main-content {
+        background: url("");
+    }
+
+    #loginForm .wrapper {
+        text-align: center;
+    }
+
+    #loginForm .container {
+        padding: 25px;
+    }
+
+#logoutForm {
+    display: inline;
+}

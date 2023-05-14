@@ -1,0 +1,139 @@
+USER
+
+User Registration
+The passengers can create an id and get registered in their taxi booking application from the login page
+ 
+Rating
+Once the journey of the passenger ends, the user has the facility to rate your driver and provide feedbacks.
+ 
+Book a Taxi
+This feature includes:
+•Set pickup Location
+•Show available/online drivers with vehicle info
+•Select Suitable vehicle (Type/Model)
+•Estimate of Fare (per Min/Miles)
+•Request for Ride
+ 
+
+Trip History
+The user can view the history of the travel in future.
+ 
+
+Payment History
+In this feature, we can analyse the payment made to the taxi driver if there are any requirements in future.
+
+
+
+Live Routing
+The passenger can fetch all the details regarding their journey from time of the arrival till the end of journey
+ 
+
+Promotions/ Free-ride
+The user will receive promotions/ free-ride promotions invite in the form of email or text messages.
+ 
+
+Manage Ride
+This helps the user to start/end Ride Notifications and then view receipt in the form of Email or Text Message.
+ 
+
+Settings
+This can include favourite places and notifications which can be with on/ off option.
+
+
+
+
+
+
+
+DRIVER
+
+Quick Registration
+Drivers can easily add the required details and request for a signup
+ 
+Select Availability
+Drivers can select themselves whether to be online or offline at any anytime so that they can remain flexible.
+ 
+
+Request for Real-time
+Drivers get notifications in their app for new requests with the details of pickup.
+ 
+Accept/Decline
+The driver has the option to accept or reject the request received form the passengers.
+ 
+
+Ride Information
+Drivers get the necessary information about their customer for a convenient pickup and drop.
+
+
+Google navigation to pick up and drop location
+Google maps navigation to provide the right directions to the particular destination.
+ 
+
+
+
+Begin/Finish Ride
+Drivers can mark when they are arriving, when they are going to start the trip and also when the trip has ended in order to generate automated bills.
+ 
+
+Invoice generation after reaching particular destination
+At the time when the passenger reaches the destination, the driver can generate invoice for their ride.
+ 
+
+
+
+Trip History
+Once the trip is completed, the driver can view the history of the trip right from the point it has started till it has ended.
+
+
+
+
+
+
+
+
+
+ADMIN
+
+
+Login Securely
+Login safely to your web based admin panel from any browser
+ 
+Dashboard of Admin
+Get to know the latest summary based on the various operations and performance
+ 
+
+Handle Drivers
+Add new drivers, review requests for signup, set reasonable rates for commission and much more.
+ 
+
+Manage Customers
+Simply view all your registered customers on your service and can gain their full details.
+ 
+
+Manage Vehicles
+Add your preferred type of vehicles and its information in order to have an easy management.
+
+
+Manage Various Categories
+Easily add and update your offerings in car in order to target various divisions of customer.
+ 
+
+Ride Tracking
+Through a master view, the trip details can be tracked right from the beginning till the end.
+ 
+
+Dispatcher Panel
+Taxi dispatch system is easily handled by your operators that are approved
+ 
+
+Manual Bookings
+Your dispatchers can easily handle new requests for booking quickly from the interface.
+
+
+It can be without GPS Tracking System, we will use Source and Destination with City, Area and District.
+
+
+
+
+
+

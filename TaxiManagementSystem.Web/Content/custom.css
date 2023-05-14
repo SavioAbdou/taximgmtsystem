@@ -1,0 +1,59 @@
+﻿.btn-primary {
+    background-color: yellow;
+    border-color: yellow;
+    color: black;
+}
+
+a {
+    color: yellow;
+}
+
+.main-content {
+    margin-top: 60px;
+    padding: 20px;
+}
+
+.loggedInContent {
+    margin-left: 200px;
+}
+
+.collapsed + .main-content {
+    margin-left: 60px;
+}
+
+footer {
+    clear: both;
+    background-color: #e2e2e2;
+    font-size: .8em;
+    height: 20px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    padding-right: 10px;
+    text-align: right;
+}
+
+marquee {
+    height: 40px;
+    position: fixed;
+    font-size: 1.5em;
+}
+
+.marquee-1 {
+    background-color: indigo;
+    color: white;
+    bottom: 20px;
+}
+
+.marquee-2 {
+    background-color: #85d4e0;
+    bottom: 60px;
+}
+
+#modalSuccess .modal-content {
+    background-color: #00b441;
+}
+
+#modalError .modal-content {
+    background-color: red;
+}
